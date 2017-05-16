@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+
+<h1>제목 : <%= item.subject %></h1>
+<h4>작성자 : <%= item.writer %></h4>
+<h6>
+   <%= item.content %>
+</h6>
+
+<a href="/">글 목록</a>
+<a href="/delete/<%=id %>">글 삭제</a>
+
+</body>
+</html>

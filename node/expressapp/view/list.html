@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+
+<TABLE>
+
+    <tr>
+        <th>글번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+    </tr>
+
+    <% for ( var  i in list ) {%>
+
+    <tr>
+        <td>
+            <%= i %>
+        </td>
+        <td>
+            <a href="/contents/<%= i %>">
+            <%= list[i].subject %>
+            </a>
+        </td>
+        <td><%= list[i].writer %> </td>
+    </tr>
+
+    <% } %>
+</TABLE>
+
+<label>
+    <a href="/write">글쓰기</a>
+</label>
+</body>
+</html>
