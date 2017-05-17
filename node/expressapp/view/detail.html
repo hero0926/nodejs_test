@@ -8,9 +8,11 @@
 
 <h1>제목 : <%= item.subject %></h1>
 <h4>작성자 : <%= item.writer %></h4>
-<h6>
+<h5>
    <%= item.content %>
-</h6>
+</h5>
+<h6>첨부파일 : <a href="/article/download/<%=id%>"><%= item.originalFilename %> </a> </h6>
+
 
 <a href="/">글 목록</a>
 <a href="/delete/<%=id %>">글 삭제</a>
