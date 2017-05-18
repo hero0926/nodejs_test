@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+
+<form action="/write" method="post" enctype="multipart/form-data">
+제목
+    <input type="text" name="subject" id="subject"><br>
+작성자
+    <input type="text" name ="writer" id="writer"><br>
+    내용
+    <textarea width="60" height="60" name="content" id="content"></textarea><br>
+    <input type="file" name="file"/>
+
+    <input type="submit">
+</form>
+<br>
+
+</body>
+</html>
