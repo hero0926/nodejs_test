@@ -51,11 +51,11 @@ app.use(bodyParser.urlencoded({extended : false}));
 
 //static 요소 불러오기
 app.use( express.static(__dirname + "/static"));
-
+app.use( express.static(__dirname + "/multipart"));
 
 //라우팅
 app.use("/user", require("./routes/user.route").router);
-app.use(require("./routes/article.route").router);
+app.use("/", require("./routes/article.route").router);
 
 
 //500페이지 처리하는

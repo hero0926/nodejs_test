@@ -27,7 +27,6 @@ const mockData = [
         content : "!zzz..."
     }
 
-
 ];
 
 //제일먼저 실행시키자!
@@ -99,7 +98,7 @@ router.get("/write", function (request, response) {
 //얘한테만 미들웨어를 넘긴다.
 router.post("/write", multipart({
 
-        uploadDir : "/multipart"
+        uploadDir : __dirname + "/../multipart"
 
     }), function (request, response) {
 
@@ -125,7 +124,15 @@ router.post("/write", multipart({
     if(files.file.originalFilename != ''){
 
         newData.originalFilename = files.file.originalFilename;
-        newData.filePath = files.file.path;
+
+        //c:\users\project\hero.jpg
+        path = files.file.path.split("\\");
+
+        //hero.jpg
+        path = path[path.length-1];
+        console.log(path);
+
+        newData.filePath = path;
 
     }
 
@@ -175,27 +182,6 @@ router.get("/delete/:id", function (request, response) {
 });
 
 
-//파일 다운로드
-
-router.get("/download/:id", function (request, response) {
-
-    let id = request.params.id;
-    const item = mockData[id];
-
-    console.log(item.filePath);
-
-    fs.readFile( item.filePath, "utf-8", function (err, data) {
-        response.type('octet/stream');
-        response.set({
-
-            'Content-Disposition' : 'attachment; file-name="' + item.originalFileName + '"',
-            'Content-Transfer-Encoding' : 'binary'
-
-        });
-        response.send(data);
-    } );
-
-});
 
 
 // router 객체는 express에서 사용할 수 있도록 router 모듈에 포함시킴
